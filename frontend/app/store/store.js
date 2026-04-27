@@ -4,6 +4,12 @@ import { create } from "zustand";
 import { createJSONStorage, persist } from "zustand/middleware";
 import Cookies from "js-cookie";
 
+const cookieStorage = {
+  getItem: (name) => Cookies.get(name) || null,
+  setItem: (name, value) => Cookies.set(name, value),
+  removeItem: (name) => Cookies.remove(name),
+};
+
 const BASE_URL = "https://api.japatalent.com/japa/v1/";
 const SIGN_UP = `${BASE_URL}registration/createaccount`;
 const LOG_IN = `${BASE_URL}user/login`;

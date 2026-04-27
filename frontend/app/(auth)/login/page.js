@@ -149,7 +149,7 @@ const Login = () => {
                   Password <span className="text-red-500">*</span>
                 </label>
                 <Link 
-                  href="/reset-password" 
+                  href="/resetEmail" 
                   className="text-xs text-primary hover:underline hover:text-primary/90 transition-colors"
                 >
                   Forgot password?
