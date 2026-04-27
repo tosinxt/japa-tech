@@ -1,14 +1,14 @@
 import { Request, Response } from "express";
-import { async_runner } from "../middlewares/async_runner";
+import { async_runner } from "../middlewares/async_runner.js";
 import { matchedData } from "express-validator";
-import { Otp, Users } from "../Models/user";
-import { generateDigitOTP, hash_pass } from "../Functions/crypt";
-import { generateRandomParagraph } from "../Functions/randomtext";
+import { Otp, Users } from "../Models/user.js";
+import { generateDigitOTP, hash_pass } from "../Functions/crypt.js";
+import { generateRandomParagraph } from "../Functions/randomtext.js";
 import jwt from "jsonwebtoken";
-import config from "../Config/config";
-import { reset_otp, welcome_email } from "../Functions/mailer";
+import config from "../Config/config.js";
+import { reset_otp, welcome_email } from "../Functions/mailer.js";
 import bcrypt from "bcrypt";
-import { Admin } from "../Models/admin";
+import { Admin } from "../Models/admin.js";
 const key = config.key;
 
 const delete_existing_otp = async (email: string) =>

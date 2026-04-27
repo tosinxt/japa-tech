@@ -8,7 +8,7 @@ import {
   validate_search,
   validate_courses_edit,
   validate_jobs_edit,
-} from "../middlewares/validation/registration_val";
+} from "../middlewares/validation/registration_val.js";
 import {
   login_admin,
   post_job_category,
@@ -27,9 +27,9 @@ import {
   list_job_cats,
   post_technology,
   post_years_of_experience,
-} from "../Controllers/admin";
+} from "../Controllers/admin.js";
 import express from "express";
-import { admin_check } from "../middlewares/auth_checker";
+import { admin_check } from "../middlewares/auth_checker.js";
 
 export default (router: express.Router) => {
   router.post(

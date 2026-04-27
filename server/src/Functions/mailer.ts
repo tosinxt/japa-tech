@@ -1,12 +1,12 @@
-var sendpulse = require("sendpulse-api");
+import sendpulse from "sendpulse-api";
 
-import config from "../Config/config";
+import config from "../Config/config.js";
 
 var TOKEN_STORAGE = "/tmp/";
 
 export const welcome_email = async (email: String, name: String) => {
   try {
-    await sendpulse.init(config.user_id, config.api_secret, TOKEN_STORAGE);
+    sendpulse.init(config.user_id, config.api_secret, TOKEN_STORAGE, (token: any) => {});
     // console.log(config.user_id, config.api_secret);
 
     const mailData = {
@@ -101,7 +101,7 @@ export const welcome_email = async (email: String, name: String) => {
 
 export const reset_otp = async (email: String, code: String) => {
   try {
-    await sendpulse.init(config.user_id, config.api_secret, TOKEN_STORAGE);
+    sendpulse.init(config.user_id, config.api_secret, TOKEN_STORAGE, (token: any) => {});
   
 
     const mailData = {

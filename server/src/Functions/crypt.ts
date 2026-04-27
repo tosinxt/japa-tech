@@ -1,5 +1,5 @@
 import bcrypt from "bcrypt";
-import config from "../Config/config";
+import config from "../Config/config.js";
 
 export const hash_pass = async (pass: string) => {
   const key = Number(config.salt);

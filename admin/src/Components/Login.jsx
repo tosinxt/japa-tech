@@ -28,7 +28,7 @@ const Login = () => {
     try {
       setLoading(true);
       const { data } = await axios.post(
-        "https://server.japatalent.com/japa/v1/admin/login",
+        "https://api.japatalent.com/japa/v1/admin/login",
         { email, password }
       );
       if (data.message !== "Invalid details") {
@@ -60,7 +60,7 @@ const Login = () => {
       <div className="absolute top-0 left-0 w-72 h-72 bg-white/10 rounded-full -translate-x-36 -translate-y-36"></div>
       <div className="absolute top-1/4 right-0 w-48 h-48 bg-white/5 rounded-full translate-x-24"></div>
       <div className="absolute bottom-0 left-1/4 w-64 h-64 bg-white/5 rounded-full translate-y-32"></div>
-      
+
       <div className="relative z-10 text-center px-12">
         <div className="mb-8">
           <img src={japaLogo} alt="Japa Logo" className="h-16 mx-auto mb-8" />
@@ -75,7 +75,7 @@ const Login = () => {
           Manage your talent platform with ease. <br />
           Unlock opportunities and drive global success.
         </p>
-        
+
         {/* Feature highlights */}
         <div className="mt-12 space-y-4">
           <div className="flex items-center justify-center gap-3 text-purple-100">
@@ -191,7 +191,7 @@ const Login = () => {
                   <ArrowLeft className="w-4 h-4 mr-2" />
                   Back to login
                 </button>
-                
+
                 <div className="text-center mb-8">
                   <div className="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-r from-blue-500 to-purple-600 rounded-2xl mb-4">
                     <Mail className="w-8 h-8 text-white" />
@@ -240,7 +240,7 @@ const Login = () => {
                   <ArrowLeft className="w-4 h-4 mr-2" />
                   Back
                 </button>
-                
+
                 <div className="text-center mb-8">
                   <div className="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-r from-green-500 to-blue-600 rounded-2xl mb-4">
                     <Shield className="w-8 h-8 text-white" />
@@ -299,7 +299,7 @@ const Login = () => {
                   <ArrowLeft className="w-4 h-4 mr-2" />
                   Back
                 </button>
-                
+
                 <div className="text-center mb-8">
                   <div className="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-r from-purple-600 to-pink-600 rounded-2xl mb-4">
                     <Lock className="w-8 h-8 text-white" />

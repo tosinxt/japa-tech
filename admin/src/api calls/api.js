@@ -1,7 +1,7 @@
-const base = "https://server.japatalent.com/japa/v1/";
+const base = "https://api.japatalent.com/japa/v1/";
 // const base = "http://localhost:2000/japa/v1/";
 // / japa / v1
-// https://server.japatalent.com/
+// https://api.japatalent.com/
 export const fetchUsers = async () => {
   const response = await fetch(`${base}admin/users`);
   if (!response.ok) {
@@ -115,7 +115,7 @@ export const postJobs = async (data) => {
     if (!response.ok) {
       const errorData = await response.json().catch(() => ({}));
       console.error("API Error:", response.status, errorData);
-      
+
       // Create a more detailed error message
       let errorMessage = `HTTP ${response.status}`;
       if (errorData.message) {
@@ -125,7 +125,7 @@ export const postJobs = async (data) => {
       } else {
         errorMessage += ': Network response was not ok';
       }
-      
+
       throw new Error(errorMessage);
     }
     const responseData = await response.json();

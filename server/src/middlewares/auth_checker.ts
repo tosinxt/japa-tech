@@ -1,7 +1,7 @@
 import { NextFunction, Request, Response } from "express";
-import { async_runner } from "../middlewares/async_runner";
+import { async_runner } from "../middlewares/async_runner.js";
 import jwt from "jsonwebtoken";
-import config from "../Config/config";
+import config from "../Config/config.js";
 const key = config.key;
 export const check_user_auth = async (
   req: Request,

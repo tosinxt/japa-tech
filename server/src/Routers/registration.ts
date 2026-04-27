@@ -5,16 +5,16 @@ import {
   validate_otp,
   validate_pass,
   validate_admin,
-} from "../middlewares/validation/registration_val";
+} from "../middlewares/validation/registration_val.js";
 import {
   register_user,
   create_otp_for_password_reset,
   verify_otp,
   set_new_pass,
   create_admin,
-} from "../Controllers/registrations";
+} from "../Controllers/registrations.js";
 import express from "express";
-import { check_reset_auth } from "../middlewares/auth_checker";
+import { check_reset_auth } from "../middlewares/auth_checker.js";
 
 export default (router: express.Router) => {
   router.post(

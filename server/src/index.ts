@@ -1,7 +1,7 @@
 import express from "express";
-import router from "./Routers/index";
-import { connect_now } from "./Config/connection";
-import config from "./Config/config";
+import router from "./Routers/index.js";
+import { connect_now } from "./Config/connection.js";
+import config from "./Config/config.js";
 import cors from "cors";
 import helmet from "helmet";
 import mongoSanitize from "express-mongo-sanitize";

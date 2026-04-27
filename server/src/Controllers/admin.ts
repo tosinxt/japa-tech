@@ -1,10 +1,10 @@
 import { Request, Response } from "express";
-import { async_runner } from "../middlewares/async_runner";
+import { async_runner } from "../middlewares/async_runner.js";
 import jwt from "jsonwebtoken";
-import config from "../Config/config";
+import config from "../Config/config.js";
 import { matchedData, param } from "express-validator";
-import { generateRandomParagraph } from "../Functions/randomtext";
-import { Admin } from "../Models/admin";
+import { generateRandomParagraph } from "../Functions/randomtext.js";
+import { Admin } from "../Models/admin.js";
 import bcrypt from "bcrypt";
 import {
   Job_category,
@@ -12,11 +12,11 @@ import {
   Jobs,
   Technologies,
   Years_of_experience,
-} from "../Models/jobs";
-import { Courses } from "../Models/courses";
-import { Talents, Users, Otp } from "../Models/user";
-import { generateDigitOTP } from "../Functions/crypt";
-import { reset_otp } from "../Functions/mailer";
+} from "../Models/jobs.js";
+import { Courses } from "../Models/courses.js";
+import { Talents, Users, Otp } from "../Models/user.js";
+import { generateDigitOTP } from "../Functions/crypt.js";
+import { reset_otp } from "../Functions/mailer.js";
 
 const key = config.key;
 export const login_admin = async_runner(async (req: Request, res: Response) => {

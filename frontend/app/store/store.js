@@ -4,7 +4,7 @@ import { create } from "zustand";
 import { createJSONStorage, persist } from "zustand/middleware";
 import Cookies from "js-cookie";
 
-const BASE_URL = "https://server.japatalent.com/japa/v1/";
+const BASE_URL = "https://api.japatalent.com/japa/v1/";
 const SIGN_UP = `${BASE_URL}registration/createaccount`;
 const LOG_IN = `${BASE_URL}user/login`;
 const VERIFY_OTP = `${BASE_URL}registration/verifyotp`;

@@ -1,13 +1,13 @@
 import { Request, Response } from "express";
-import { async_runner } from "../middlewares/async_runner";
+import { async_runner } from "../middlewares/async_runner.js";
 import { matchedData } from "express-validator";
-import { Applications, Talents, Users } from "../Models/user";
+import { Applications, Talents, Users } from "../Models/user.js";
 import bcrypt from "bcrypt";
 import jwt from "jsonwebtoken";
-import { generateRandomParagraph } from "../Functions/randomtext";
-import config from "../Config/config";
-import { Job_category, Job_type, Jobs } from "../Models/jobs";
-import { Courses } from "../Models/courses";
+import { generateRandomParagraph } from "../Functions/randomtext.js";
+import config from "../Config/config.js";
+import { Job_category, Job_type, Jobs } from "../Models/jobs.js";
+import { Courses } from "../Models/courses.js";
 import mongoose from "mongoose";
 const key = config.key;
 

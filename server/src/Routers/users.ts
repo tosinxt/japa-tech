@@ -2,7 +2,7 @@ import {
   validate_signin,
   handle_validation_errors,
   validate_search,
-} from "../middlewares/validation/registration_val";
+} from "../middlewares/validation/registration_val.js";
 import {
   apply_for_jobs,
   find_courses,
@@ -13,11 +13,11 @@ import {
   list_jobtype,
   login_user,
   apply_for_coaching,
-} from "../Controllers/user";
+} from "../Controllers/user.js";
 import express from "express";
-import { find_jobs } from "../Controllers/user";
-import { user_check } from "../middlewares/auth_checker";
-import { list_technologies, list_yoe } from "../Controllers/admin";
+import { find_jobs } from "../Controllers/user.js";
+import { user_check } from "../middlewares/auth_checker.js";
+import { list_technologies, list_yoe } from "../Controllers/admin.js";
 
 export default (router: express.Router) => {
   router.post(

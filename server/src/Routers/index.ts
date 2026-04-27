@@ -1,8 +1,8 @@
 import express, { Router } from "express";
-import japa from "./japa";
-import register from "./registration";
-import users from "./users";
-import admin from "./admin";
+import japa from "./japa.js";
+import register from "./registration.js";
+import users from "./users.js";
+import admin from "./admin.js";
 
 const router = express.Router();
 
