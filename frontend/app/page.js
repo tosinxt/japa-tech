@@ -310,7 +310,7 @@ const Home = () => {
               text={"Revamp My CV →"}
               bgColor={"bg-white hover:bg-gray-100"}
               width={"w-fit tablet:mt-4 mt-2"}
-              path="https://docs.google.com/forms/d/1OsZ5mkU3BAB0Cfv_BmcrlCjU7ZUGKm22GSWtSRT7px4/viewform?ref=dishapages&edit_requested=true"
+              path="https://bit.ly/JapatechCv"
               color={"text-primary font-semibold shadow-xl hover:shadow-2xl transition-all duration-300"}
             />
           </div>

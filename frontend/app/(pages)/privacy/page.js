@@ -18,7 +18,7 @@ const PrivacyPage = () => {
             <h1 className="text-3xl font-bold text-slate-900 mb-8">Privacy Policy</h1>
             <div className="prose prose-slate max-w-none">
               <p className="text-slate-600 leading-relaxed mb-6">
-                Your privacy is important to us. It is Japa Talent's policy to respect your privacy regarding any information we may collect from you across our website.
+                Your privacy is important to us. It is Japa Talent&apos;s policy to respect your privacy regarding any information we may collect from you across our website.
               </p>
               <h2 className="text-xl font-semibold text-slate-800 mb-4">1. Information We Collect</h2>
               <p className="text-slate-600 mb-6">

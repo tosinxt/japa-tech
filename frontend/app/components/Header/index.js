@@ -32,21 +32,26 @@ const Header = () => {
     }
   };
 
-  const NavLink = ({ text, path }) => (
-    <Link
-      href={path}
-      className={`group relative rounded-full text-sm tablet:text-base w-fit px-4 tablet:px-6 h-10 font-medium flex items-center justify-center transition-all duration-300 ${
-        isActive(path)
-          ? "bg-gradient-to-r from-primary to-purple-600 text-white shadow-lg shadow-primary/30"
-          : "text-textDefault hover:text-primary hover:bg-primaryLight"
-      }`}
-    >
-      {text}
-      {!isActive(path) && (
-        <span className="absolute inset-0 rounded-full border-2 border-primary opacity-0 group-hover:opacity-20 transition-opacity duration-300" />
-      )}
-    </Link>
-  );
+  const NavLink = ({ text, path }) => {
+    const isExternal = path.startsWith("http");
+    return (
+      <Link
+        href={path}
+        target={isExternal ? "_blank" : undefined}
+        rel={isExternal ? "noopener noreferrer" : undefined}
+        className={`group relative rounded-full text-sm tablet:text-base w-fit px-4 tablet:px-6 h-10 font-medium flex items-center justify-center transition-all duration-300 ${
+          isActive(path)
+            ? "bg-gradient-to-r from-primary to-purple-600 text-white shadow-lg shadow-primary/30"
+            : "text-textDefault hover:text-primary hover:bg-primaryLight"
+        }`}
+      >
+        {text}
+        {!isActive(path) && (
+          <span className="absolute inset-0 rounded-full border-2 border-primary opacity-0 group-hover:opacity-20 transition-opacity duration-300" />
+        )}
+      </Link>
+    );
+  };
 
   const toggleDropDown = () => {
     setDropDown(!dropDown);
@@ -66,7 +71,7 @@ const Header = () => {
             <NavLink path="/" text={"Home"} />
             <NavLink path="/courses" text={"Courses"} />
             <NavLink
-              path="https://docs.google.com/forms/d/1OsZ5mkU3BAB0Cfv_BmcrlCjU7ZUGKm22GSWtSRT7px4/viewform?ref=dishapages&edit_requested=true"
+              path="https://bit.ly/JapatechCv"
               text={"CV Revamp"}
             />
           </div>
@@ -108,7 +113,7 @@ const Header = () => {
               <NavLink path="/" text={"Home"} />
               <NavLink path="/courses" text={"Courses"} />
               <NavLink
-                path="https://docs.google.com/forms/d/1OsZ5mkU3BAB0Cfv_BmcrlCjU7ZUGKm22GSWtSRT7px4/viewform?ref=dishapages&edit_requested=true"
+                path="https://bit.ly/JapatechCv"
                 text={"CV Revamp"}
               />
             </div>

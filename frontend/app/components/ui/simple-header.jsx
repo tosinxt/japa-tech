@@ -22,6 +22,10 @@ export function SimpleHeader() {
       label: "Career Coaching",
       href: "/careerCoaching",
     },
+    {
+      label: "CV Revamp",
+      href: "https://bit.ly/JapatechCv",
+    },
   ];
 
   return (
@@ -43,15 +47,20 @@ export function SimpleHeader() {
 
         {/* Desktop Navigation */}
         <div className="hidden pc:flex items-center gap-1">
-          {links.map((link) => (
-            <Link
-              key={link.href}
-              className={buttonVariants({ variant: "ghost", className: "text-base" })}
-              href={link.href}
-            >
-              {link.label}
-            </Link>
-          ))}
+          {links.map((link) => {
+            const isExternal = link.href.startsWith("http");
+            return (
+              <Link
+                key={link.href}
+                className={buttonVariants({ variant: "ghost", className: "text-base" })}
+                href={link.href}
+                target={isExternal ? "_blank" : undefined}
+                rel={isExternal ? "noopener noreferrer" : undefined}
+              >
+                {link.label}
+              </Link>
+            );
+          })}
         </div>
 
         {/* Desktop Buttons */}
@@ -108,19 +117,24 @@ export function SimpleHeader() {
 
             {/* Mobile Navigation Links */}
             <div className="grid gap-y-1 overflow-y-auto px-2 pt-4 pb-5">
-              {links.map((link) => (
-                <Link
-                  key={link.href}
-                  className={buttonVariants({
-                    variant: "ghost",
-                    className: "justify-start text-base h-12",
-                  })}
-                  href={link.href}
-                  onClick={() => setOpen(false)}
-                >
-                  {link.label}
-                </Link>
-              ))}
+              {links.map((link) => {
+                const isExternal = link.href.startsWith("http");
+                return (
+                  <Link
+                    key={link.href}
+                    className={buttonVariants({
+                      variant: "ghost",
+                      className: "justify-start text-base h-12",
+                    })}
+                    href={link.href}
+                    target={isExternal ? "_blank" : undefined}
+                    rel={isExternal ? "noopener noreferrer" : undefined}
+                    onClick={() => setOpen(false)}
+                  >
+                    {link.label}
+                  </Link>
+                );
+              })}
             </div>
 
             {/* Mobile Buttons */}

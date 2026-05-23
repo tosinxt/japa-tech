@@ -9,6 +9,7 @@ import { useForm, Controller } from "react-hook-form";
 import { motion, AnimatePresence } from "framer-motion";
 import { useRouter } from "next/navigation";
 import { useJapaStore } from "@/app/store/store";
+import ReCAPTCHA from "react-google-recaptcha";
 
 // Custom input component with animations and better styling
 const InputField = ({
@@ -118,6 +119,9 @@ const PasswordStrength = ({ password = '' }) => {
 };
 
 const SignUp = () => {
+  const [recaptchaToken, setRecaptchaToken] = useState(null);
+  const recaptchaRef = React.useRef();
+
   const {
     register,
     handleSubmit,
@@ -144,9 +148,19 @@ const SignUp = () => {
   const signUpUser = useJapaStore((state) => state.register);
   const router = useRouter();
 
+  const onRecaptchaChange = (token) => {
+    setRecaptchaToken(token);
+    if (token) setFormError('');
+  };
+
   const onSubmit = async (data) => {
     if (!agreedToTerms) {
       setFormError('Please accept the terms and conditions');
+      return;
+    }
+
+    if (!recaptchaToken) {
+      setFormError('Please complete the reCAPTCHA');
       return;
     }
 
@@ -157,6 +171,7 @@ const SignUp = () => {
         phone_number: data.phoneNumber,
         email: data.email,
         pass_word: data.password,
+        recaptcha_token: recaptchaToken,
       };
 
       await signUpUser(userData);
@@ -164,6 +179,8 @@ const SignUp = () => {
     } catch (error) {
       console.error('Signup error:', error);
       setFormError(error.message || 'An error occurred during signup. Please try again.');
+      recaptchaRef.current.reset();
+      setRecaptchaToken(null);
     }
   };
 
@@ -375,6 +392,14 @@ const SignUp = () => {
                   Privacy Policy
                 </Link>
               </label>
+            </div>
+
+            <div className="flex justify-center py-2">
+              <ReCAPTCHA
+                ref={recaptchaRef}
+                sitekey={process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY}
+                onChange={onRecaptchaChange}
+              />
             </div>
 
             <motion.button

@@ -26,7 +26,7 @@ const TermsPage = () => {
               </p>
               <h2 className="text-xl font-semibold text-slate-800 mb-4">2. Use License</h2>
               <p className="text-slate-600 mb-6">
-                Permission is granted to temporarily download one copy of the materials on Japa Talent's website for personal, non-commercial transitory viewing only.
+                Permission is granted to temporarily download one copy of the materials on Japa Talent&apos;s website for personal, non-commercial transitory viewing only.
               </p>
               <p className="text-slate-400 italic text-sm mt-12 border-t pt-8">
                 Last Updated: April 27, 2026

@@ -139,7 +139,7 @@ const Footer = () => {
             <ul className="flex flex-col gap-3">
               <li>
                 <Link
-                  href="https://docs.google.com/forms/d/1OsZ5mkU3BAB0Cfv_BmcrlCjU7ZUGKm22GSWtSRT7px4/viewform?ref=dishapages&edit_requested=true"
+                  href="https://bit.ly/JapatechCv"
                   className="text-textNeutral hover:text-primary transition-colors duration-300 text-sm flex items-center gap-2 group"
                   target="_blank"
                   rel="noopener noreferrer"

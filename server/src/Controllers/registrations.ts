@@ -2,6 +2,7 @@ import { Request, Response } from "express";
 import { async_runner } from "../middlewares/async_runner.js";
 import { matchedData } from "express-validator";
 import { Otp, Users } from "../Models/user.js";
+import axios from "axios";
 import { generateDigitOTP, hash_pass } from "../Functions/crypt.js";
 import { generateRandomParagraph } from "../Functions/randomtext.js";
 import jwt from "jsonwebtoken";
@@ -30,7 +31,28 @@ export const register_user = async_runner(
       auth_o_id,
       job_status,
       additional_certification,
+      recaptcha_token,
     } = matchedData(req);
+
+    if (!recaptcha_token) {
+      return res.status(400).json({ message: "reCAPTCHA token is required" });
+    }
+
+    try {
+      const response = await axios.post(
+        `https://www.google.com/recaptcha/api/siteverify?secret=${config.recaptcha_secret}&response=${recaptcha_token}`
+      );
+      if (!response.data.success) {
+        return res.status(400).json({ message: "Invalid reCAPTCHA" });
+      }
+    } catch (error) {
+      console.error("reCAPTCHA verification error:", error);
+      // Fail safe in dev or if secret is not set, but better to be strict
+      if (process.env.NODE_ENV === "production") {
+        return res.status(500).json({ message: "Error verifying reCAPTCHA" });
+      }
+    }
+
     const existing_user = await Users.findOne({ email });
     if (existing_user) {
       return res.json({

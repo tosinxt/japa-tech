@@ -50,6 +50,10 @@ const validate_user_details = [
     .optional()
     .isArray()
     .withMessage("must be a valid object"),
+  check("recaptcha_token")
+    .notEmpty()
+    .isString()
+    .withMessage("reCAPTCHA token is required"),
 ];
 
 const validate_signin = [

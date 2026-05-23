@@ -10,5 +10,8 @@
             "allowSyntheticDefaultImports": true
       },
       "include": ["src/**/*"],
-
+      "ts-node": {
+            "esm": true,
+            "experimentalSpecifierResolution": "node"
+      }
 }

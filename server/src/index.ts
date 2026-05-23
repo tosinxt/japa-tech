@@ -5,13 +5,22 @@ import config from "./Config/config.js";
 import cors from "cors";
 import helmet from "helmet";
 import mongoSanitize from "express-mongo-sanitize";
-// import rateLimit from "express-rate-limit";
+import { rateLimit } from "express-rate-limit";
 
 const app = express();
+
+const limiter = rateLimit({
+  windowMs: 15 * 60 * 1000,
+  max: 100,
+  message: "Too many requests from this IP, please try again after 15 minutes",
+  standardHeaders: true,
+  legacyHeaders: false,
+});
 
 connect_now(config.conn);
 
 // Middleware
+app.use(limiter);
 app.use(express.json());
 app.disable("x-powered-by");
 app.use(helmet());
