@@ -80,7 +80,13 @@ const Job = () => {
       </div>
       <div className="flex justify-between gap-2 tablet:text-base text-sm">
         <p className="font-medium">Salary</p>
-        <span className="font-light">20,000</span>
+        <span className="font-light">
+          {jobById?.min_salary || jobById?.max_salary
+            ? `${jobById?.min_salary?.toLocaleString() ?? "0"} - ${
+                jobById?.max_salary?.toLocaleString() ?? "0"
+              }`
+            : "Not specified"}
+        </span>
       </div>
       <div className="flex justify-between gap-2 tablet:text-base text-sm">
         <p className="font-medium">Experience </p>

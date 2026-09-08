@@ -95,6 +95,11 @@ export const post_jobs = async_runner(async (req: Request, res: Response) => {
       category,
       applicants,
       link,
+      skills,
+      min_salary,
+      max_salary,
+      technology,
+      ideal_candidate,
     } = matchedData(req);
     const save_job = new Jobs({
       job_title,
@@ -109,6 +114,11 @@ export const post_jobs = async_runner(async (req: Request, res: Response) => {
       what_we_are_lookin_for,
       applicants,
       link,
+      skills,
+      min_salary,
+      max_salary,
+      technology,
+      ideal_candidate,
       date_posted: Date.now(),
     });
     const saved_job = await save_job.save();
@@ -138,6 +148,11 @@ export const edit_jobs = async_runner(async (req: Request, res: Response) => {
       applicants,
       link,
       job_id,
+      skills,
+      min_salary,
+      max_salary,
+      technology,
+      ideal_candidate,
     } = matchedData(req);
     const update_job = await Jobs.findByIdAndUpdate(
       job_id,
@@ -154,6 +169,11 @@ export const edit_jobs = async_runner(async (req: Request, res: Response) => {
         what_we_are_lookin_for,
         applicants,
         link,
+        skills,
+        min_salary,
+        max_salary,
+        technology,
+        ideal_candidate,
         date_posted: Date.now(),
       },
       { new: true }

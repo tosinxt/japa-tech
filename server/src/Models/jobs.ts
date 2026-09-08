@@ -17,7 +17,11 @@ const job_schema = new Schema({
   link: { type: String },
   payment_type: { type: String },
   currency: { type: String },
-  // skills: { type: String },
+  skills: { type: String },
+  min_salary: { type: Number },
+  max_salary: { type: Number },
+  technology: { type: [String] },
+  ideal_candidate: { type: String },
 });
 const job_type_schema = new Schema({
   name: { type: String },
